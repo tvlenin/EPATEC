@@ -3,24 +3,37 @@
 
 <head>
     <meta charset="utf-8"/>
-
-
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
-
     <!-- The main CSS file -->
     <link href="style.css" rel="stylesheet" />
-
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
 
 <!-- The ng-app directive tells angular that the code below should be evaluated -->
-
 <body ng-app>
+
+
+<div class="sidebar">
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="">Sales</a></li>
+        <li><a href="">View Orders</a></li>
+        <li><a href="">Maintenance</a></li>
+        <li><a href="">Stadistics</a></li>
+    </ul>
+</div>
+
+<div class="content open">
+    <img src="src/menu_icon.png" alt="" class="menu-bar">
+</div>
+
+
 
 <!-- The navigation menu will get the value of the "active" variable as a class.
      The $event.preventDefault() stops the page from jumping when a link is clicked. -->
+
 
 <nav class="{{active}}" ng-click="$event.preventDefault()">
 
@@ -39,7 +52,12 @@
 
 <p ng-show="active">You chose <b>{{active}}</b></p>
 
+
+
 <!-- Include AngularJS from Google's CDN -->
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></src>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="open.js"></script>
 </body>
+
 </html>
