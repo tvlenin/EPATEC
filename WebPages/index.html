@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            position: relative;
+        }
+        ul.nav-pills {
+            top: 20px;
+            position: fixed;
+        }
+        div.col-sm-9 div {
+            height: 250px;
+            font-size: 28px;
+        }
+        #section11 {color: #fff; background-color: #5e5b64;}
+        #section12 {color: #fff; background-color: #5e5b64;}
+        #section21 {color: #fff; background-color: #1E88E5;}
+        #section22 {color: #fff; background-color: #1E88E5;}
+
+        @media screen and (max-width: 810px) {
+            #section11,,#section12 #section2, #section3, #section41, #section42  {
+                margin-left: 150px;
+            }
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+
+<div class="container">
+    <div class="row">
+        <nav class="col-sm-3" id="myScrollspy">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Subsidiary<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#section11">Subsidiary</a></li>
+                        <li><a href="#section12">Orders</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administration <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#section21">Maintenance</a></li>
+                        <li><a href="#section22">Statistics</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="col-sm-9">
+            <div id="section11">
+                <h1>Subsidiary</h1>
+                <ul>
+                    <li>Sales</li>
+                </ul>
+            </div>
+            <div id="section12">
+                <h1>Subsidiary</h1>
+                <ul>
+                    <li>View orders</li>
+                </ul>
+            </div>
+            <div id="section21">
+                <h1>Maintenance</h1>
+                <ul>
+                    <li>Maintenance for the clients, providers, products, orders and categories</li>
+                </ul>
+            </div>
+            <div id="section22">
+                <h1>Statistics</h1>
+                <ul>
+                    <li>Information about EPATEC</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
