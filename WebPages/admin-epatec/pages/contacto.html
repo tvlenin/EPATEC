@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productos</title>
+    <link rel="stylesheet" href="../assets/css/shopStyle.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+<div data-ng-app="mainModule">
+    <div class="well container-fluid">
+        <h1>Administración</h1>
+        <tabs>
+            <pane title="Agregar Productos">
+                <div ng-controller="MyController" uploader="uploader">
+                    <div class="form-group row">
+                        <label for="Name" class="col-xs-2 col-form-label">Nombre</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Name" type="text" value="Clavos" id="Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-search-input" class="col-xs-2 col-form-label">Detalles</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Details" type="text" value="Detalles" id="example-search-input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="InStock" class="col-xs-2 col-form-label">En inventario</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.InStock" type="number" value=30 id="InStock">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Precio" class="col-xs-2 col-form-label">Precio</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Price" type="number" value=4550 id="Precio">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Sucursal" class="col-xs-2 col-form-label">Sucursal</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.BOffice" type="number" value=4 id="Sucursal">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Libre de Impuesto" class="col-xs-2 col-form-label">Libre de Impuesto</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.taxFree" type="number" value=1 id="Libre de Impuesto">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-xs-2 col-form-label">ID Proveedor</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Supplier" type="number" value=201403212 id="example-number-input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-datetime-local-input" class="col-xs-2 col-form-label">Categoria</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Categoria" type="number" value=1 id="example-datetime-local-input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-date-input" class="col-xs-2 col-form-label">Activo</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Active" type="number" value=1 id="example-date-input">
+                            <button style="background: #d9b034;
+                                position: relative;
+                                right: 100px;
+                                background-image: -webkit-linear-gradient(top, #d9b034, #b86d2b);
+                                background-image: -moz-linear-gradient(top, #d9b034, #b86d2b);
+                                background-image: -ms-linear-gradient(top, #d9b034, #b86d2b);
+                                background-image: -o-linear-gradient(top, #d9b034, #b86d2b);
+                                background-image: linear-gradient(to bottom, #d9b034, #b86d2b);
+                                -webkit-border-radius: 28px;
+                                -moz-border-radius: 28px;
+                                border-radius: 28px;
+                                font-family: Arial;
+                                color: #ffffff;
+                                font-size: 15px;
+                                padding: 10px 20px 10px 20px;
+                                border: solid #616b63 2px;
+                                text-decoration: none;" ng-click="myForm.submitTheForm()">Agregar <i class="fa fa-plus"></i></button>
+                            <button style="background: #d9b034;
+                                position: relative;
+                                right: 100px;
+                                background-image: -webkit-linear-gradient(top, #4793D0, #3D83BD);
+                                background-image: -moz-linear-gradient(top, #4793D0, #3D83BD);
+                                background-image: -ms-linear-gradient(top, #4793D0, #3D83BD);
+                                background-image: -o-linear-gradient(top, #4793D0, #3D83BD);
+                                background-image: linear-gradient(to bottom, #4793D0, #3D83BD);
+                                -webkit-border-radius: 28px;
+                                -moz-border-radius: 28px;
+                                border-radius: 28px;
+                                font-family: Arial;
+                                color: #ffffff;
+                                font-size: 15px;
+                                padding: 10px 20px 10px 20px;
+                                border: solid #616b63 2px;
+                                text-decoration: none;" ng-click="myForm.uploadFile()">Imagen <i class="fa fa-file-photo-o"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </pane>
+            <pane title="Eliminar Productos" >
+                <div ng-controller="ProductosController">
+                    <table class="table table-inverse" >
+                        <thead>
+                        <tr >
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Detalles</th>
+                            <th>Inventario</th>
+                            <th>Precio</th>
+                            <th>Sucursal</th>
+                            <th>Impuesto</th>
+                            <th>ID Proveedor</th>
+                            <th>Categoria</th>
+                            <th>Activo</th>
+                            <th>Eliminar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="producto in productos">
+                            <td> <h4> {{producto.ID_Product}} </h4> </td>
+                            <td> <h4> {{producto.Name}} </h4> </td>
+                            <td> <h5> {{producto.Details}} </h5> </td>
+                            <td> <h5> {{producto.Stock}} </h5> </td>
+                            <td> <h5> {{producto.Price}} </h5> </td>
+                            <td> <h5> {{producto.BOffice}} </h5> </td>
+                            <td> <h5> {{producto.TaxFree}} </h5> </td>
+                            <td> <h5> {{producto.ID_Supplier}} </h5> </td>
+                            <td> <h5> {{producto.ID_Category}} </h5> </td>
+                            <td> <h5> {{producto.Active}} </h5> </td>
+                            <td> <button class="btn" ng-click="deleteProduct(producto)">Eliminar</button> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </pane>
+            <pane title="Agregar Categoria">
+                <div ng-controller="AddCategory">
+                    <div class="form-group row">
+                        <label for="CategoriaAdd" class="col-xs-2 col-form-label">Categoria</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Category" type="text" value='tipo de Categoria' id="CategoriaAdd">
+                        </div>
+                    </div>
+                    <button style="background: #d9b034;
+                            position: relative;
+                            right: 100px;
+                            background-image: -webkit-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: -moz-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: -ms-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: -o-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: linear-gradient(to bottom, #d9b034, #b86d2b);
+                            -webkit-border-radius: 28px;
+                            -moz-border-radius: 28px;
+                            border-radius: 28px;
+                            font-family: Arial;
+                            color: #ffffff;
+                            font-size: 15px;
+                            padding: 10px 20px 10px 20px;
+                            border: solid #616b63 2px;
+                            text-decoration: none;" ng-click="myForm.submitDetail()">Agregar <i class="fa fa-plus"></i></button>
+                </div>
+            </pane>
+            <pane title="Agregar Proveedor">
+                <div ng-controller="AddSupplier">
+                    <div class="form-group row">
+                        <label for="ID_Proveedor" class="col-xs-2 col-form-label"> ID Proveedor</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.ID_Supplier" type="number" value=1 id="ID_Proveedor">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="ActiveSupplier" class="col-xs-2 col-form-label"> Activo</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Active" type="number" value=1 id="ActiveSupplier">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="SupplierName" class="col-xs-2 col-form-label"> Nombre</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.SName" type="text" value='nombre' id="SupplierName">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Country" class="col-xs-2 col-form-label"> Pais</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Country" type="text" value='Ejemplo:Country' id="Country">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="Phone" class="col-xs-2 col-form-label">Teléfono</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Phone" type="text" value='506 98765678' id="Phone">
+                        </div>
+                    </div>
+                    <button style="background: #d9b034;
+                            position: relative;
+                            right: 100px;
+                            background-image: -webkit-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: -moz-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: -ms-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: -o-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: linear-gradient(to bottom, #d9b034, #b86d2b);
+                            -webkit-border-radius: 28px;
+                            -moz-border-radius: 28px;
+                            border-radius: 28px;
+                            font-family: Arial;
+                            color: #ffffff;
+                            font-size: 15px;
+                            padding: 10px 20px 10px 20px;
+                            border: solid #616b63 2px;
+                            text-decoration: none;" ng-click="myForm.submitSupplier()">Agregar <i class="fa fa-plus"></i></button>
+                </div>
+            </pane>
+            <pane title="Eliminar Proveedor" >
+                <div ng-controller="ProviderController">
+                    <table class="table table-inverse" >
+                        <thead>
+                        <tr >
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Activo</th>
+                            <th>Pais</th>
+                            <th>Celular</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="producto in productos">
+                            <td> <h4> {{producto.ID_Supplier}} </h4> </td>
+                            <td> <h4> {{producto.Name}} </h4> </td>
+                            <td> <h5> {{producto.Active}} </h5> </td>
+                            <td> <h5> {{producto.Country}} </h5> </td>
+                            <td> <h5> {{producto.Phone}} </h5> </td>
+
+                            <td> <button class="btn" ng-click="deleteProvider(producto)">Eliminar</button> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </pane>
+            <pane title="Actualizar Producto" >
+                <div ng-controller="ActualizarProductoController" uploader="uploader">
+                    <div class="form-group row">
+                        <label for="ID" class="col-xs-2 col-form-label">ID</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.ID" type="number" value="#ID" id="ID">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Name" class="col-xs-2 col-form-label">Nombre</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Name" type="text" value="Clavos" id="Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-search-input" class="col-xs-2 col-form-label">Detalles</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Details" type="text" value="Detalles" id="example-search-input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="InStock" class="col-xs-2 col-form-label">En inventario</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.InStock" type="number" value=30 id="InStock">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Precio" class="col-xs-2 col-form-label">Precio</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Price" type="number" value=4550 id="Precio">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Sucursal" class="col-xs-2 col-form-label">Sucursal</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.BOffice" type="number" value=4 id="Sucursal">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Libre de Impuesto" class="col-xs-2 col-form-label">Libre de Impuesto</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.taxFree" type="number" value=1 id="Libre de Impuesto">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-xs-2 col-form-label">ID Proveedor</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Supplier" type="number" value=201403212 id="example-number-input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-datetime-local-input" class="col-xs-2 col-form-label">Categoria</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Categoria" type="number" value=1 id="example-datetime-local-input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-date-input" class="col-xs-2 col-form-label">Activo</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Active" type="number" value=1 id="example-date-input">
+                            <button style="background: #d9b034;
+                                position: relative;
+                                right: 100px;
+                                background-image: -webkit-linear-gradient(top, #d9b034, #b86d2b);
+                                background-image: -moz-linear-gradient(top, #d9b034, #b86d2b);
+                                background-image: -ms-linear-gradient(top, #d9b034, #b86d2b);
+                                background-image: -o-linear-gradient(top, #d9b034, #b86d2b);
+                                background-image: linear-gradient(to bottom, #d9b034, #b86d2b);
+                                -webkit-border-radius: 28px;
+                                -moz-border-radius: 28px;
+                                border-radius: 28px;
+                                font-family: Arial;
+                                color: #ffffff;
+                                font-size: 15px;
+                                padding: 10px 20px 10px 20px;
+                                border: solid #616b63 2px;
+                                text-decoration: none;" ng-click="myForm.updateProduct()">Actualizar Datos <i class="fa fa-plus"></i></button>
+                            <button style="background: #d9b034;
+                                position: relative;
+                                right: 100px;
+                                background-image: -webkit-linear-gradient(top, #4793D0, #3D83BD);
+                                background-image: -moz-linear-gradient(top, #4793D0, #3D83BD);
+                                background-image: -ms-linear-gradient(top, #4793D0, #3D83BD);
+                                background-image: -o-linear-gradient(top, #4793D0, #3D83BD);
+                                background-image: linear-gradient(to bottom, #4793D0, #3D83BD);
+                                -webkit-border-radius: 28px;
+                                -moz-border-radius: 28px;
+                                border-radius: 28px;
+                                font-family: Arial;
+                                color: #ffffff;
+                                font-size: 15px;
+                                padding: 10px 20px 10px 20px;
+                                border: solid #616b63 2px;
+                                text-decoration: none;" ng-click="myForm.uploadFile()">Imagen <i class="fa fa-file-photo-o"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </pane>
+
+            <pane title="Actualizar Proveedor" >
+                <div ng-controller="updateSupplier">
+                    <div class="form-group row">
+                        <label for="ID_Proveedor" class="col-xs-2 col-form-label"> ID Proveedor</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.ID_Supplier" type="number" value=1 id="ID_ProveedorUpdate">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="ActiveSupplier" class="col-xs-2 col-form-label"> Activo</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Active" type="number" value=1 id="ActiveSupplierUpdate">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="SupplierName" class="col-xs-2 col-form-label"> Nombre</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.SName" type="text" value='nombre' id="SupplierNameUpdate">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Country" class="col-xs-2 col-form-label"> Pais</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Country" type="text" value='Ejemplo:Country' id="CountryUpdate">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="Phone" class="col-xs-2 col-form-label">Teléfono</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" ng-model="myForm.Phone" type="text" value='506 98765678' id="PhoneUpdate">
+                        </div>
+                    </div>
+                    <button style="background: #d9b034;
+                            position: relative;
+                            right: 100px;
+                            background-image: -webkit-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: -moz-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: -ms-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: -o-linear-gradient(top, #d9b034, #b86d2b);
+                            background-image: linear-gradient(to bottom, #d9b034, #b86d2b);
+                            -webkit-border-radius: 28px;
+                            -moz-border-radius: 28px;
+                            border-radius: 28px;
+                            font-family: Arial;
+                            color: #ffffff;
+                            font-size: 15px;
+                            padding: 10px 20px 10px 20px;
+                            border: solid #616b63 2px;
+                            text-decoration: none;" ng-click="myForm.updateSupplier()">Actualizar Proveedor <i class="fa fa-plus"></i></button>
+                </div>
+            </pane>
+
+
+        </tabs>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

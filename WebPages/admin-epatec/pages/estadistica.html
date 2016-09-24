@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productos</title>
+    <link rel="stylesheet" href="../assets/css/shopStyle.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+<div data-ng-app="mainModule">
+    <div class="well container-fluid">
+        <h1>Estadistica</h1>
+        <tabs>
+            <pane title="Productos mas vendidos">
+                <div ng-controller="BestSellerController">
+                    <table class="table table-inverse" >
+                        <thead>
+                        <tr >
+                            <th>Nombre</th>
+                            <th>Número de ventas</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="producto in PBestSellers">
+                            <td> <h5> {{producto.Name}}</h5> </td>
+                            <td> <h4>{{producto.Total}}</h4> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </pane>
+
+
+
+            <pane title="Cantidad de productos vendidos por sucursal" >
+                <div ng-controller="SalesPerBranchController">
+                    <table class="table table-inverse" >
+                        <thead>
+                        <tr >
+                            <th>Nombre de sucursal</th>
+                            <th>Cantidad de productos vendidos</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="producto in SalesPerBranch">
+                            <td> <h4>{{producto.name}}</h4> </td>
+                            <td> <h5> {{producto.total}}</h5> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </pane>
+
+
+            <pane title="Producto mas vendido por sucursal">
+                <div ng-controller="BestSalesPerBranchController">
+                    <table class="table table-inverse" >
+                        <thead>
+                        <tr >
+                            <th>Sucursal</th>
+                            <th>Item</th>
+                            <th>Cantidad</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="producto in BestSalesPerBranch">
+                            <td> <h4>{{producto.Name}}</h4> </td>
+                            <td> <h4>{{producto.nameP}}</h4> </td>
+                            <td> <h5> {{producto.total}}</h5> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </pane>
+
+
+
+
+        </tabs>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

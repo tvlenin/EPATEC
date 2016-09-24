@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="mainModule">
+
+<head>
+    <title>Epatec</title>
+    <script data-require="angular.js@1.4.0" data-semver="1.4.0" src="https://code.angularjs.org/1.4.0/angular.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/mainStyles.css" />
+    <link rel="stylesheet" href="assets/css/sweetalert.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="controllers/sidebarControler.js"></script>
+    <script src="assets/js/angular-cookies.js"></script>
+    <script src="assets/js/sweetalert.min.js"></script>
+    <script src="assets/js/ng-sweet-alert.js"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css">
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        html img{ width: 200px; height: 150px; }
+    </style>
+
+
+</head>
+
+<body>
+
+
+<div class="container">
+    <div ng-controller="SidebarController">
+        <div>
+            <a id="user-toggle-menu"> <span ng-bind="username_label"></span> </a>
+        </div>
+
+        <div class="sidebar" sidebar-directive="state">
+            <a href="" id="navigation-toggle" ng-click="toggleState()"><img id = "imgmenu" src="images/menubars.png" alt="Menú"></a>
+            <h2>Menu</h2>
+            <ul class="navigation">
+                <li class="navigation-items"> <a href="#home">Inicio</a></li>
+                <li class="navigation-items"> <a href="#productos">Productos</a></li>
+                <li class="navigation-items"> <a href="#contacto">Contacto</a></li>
+                <!--<button ng-click="toggleModal()" class="btn btn-default">Open modal</button> -->
+                <li class="navigation-items" ng-click="toggleModal()"> <a href="">Ingresar</a></li>
+                <li class="navigation-items"> <a href="register.html">Registrarse</a></li>
+            </ul>
+        </div>
+
+        <modal title="Ingresar" visible="showModal">
+            <form>
+                <div>
+                    <label class="logintxt">Usuario</label>
+                    <input ng-model=myForm.nickname class="css-input"placeholder="Ingrese su usuario" />
+                </div>
+                <div>
+                    <label class="logintxt">Contrase&ntildea</label>
+                    <input ng-model=myForm.pass type="password" class="css-input" placeholder="*******" />
+                </div>
+
+                <button ng-click="login()" class="btn btn-default">Ingresar</button>
+            </form>
+        </modal>
+
+    </div>
+
+    <nav class="{{active}}"> <!-- ng-click="$event.preventDefault()" -->
+        <a href="#home" class="home" ng-click="active='home'">Inicio</a>
+        <a href="#productos" class="productos" ng-click="active='productos'">Productos</a>
+        <a href="#contacto" class="contacto" ng-click="active='contacto'">Contacto</a>
+    </nav>
+</div>
+
+<div id="main">
+    <!-- angular templating -->
+    <!-- this is where content will be injected -->
+    <div ng-view></div>
+
+</div>
+
+
+</body>
+</html>

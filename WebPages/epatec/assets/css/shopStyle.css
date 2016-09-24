@@ -1,0 +1,82 @@
+.buyButton{
+    background: #76d64d;
+    background-image: -webkit-linear-gradient(top, #76d64d, #689e4d);
+    background-image: -moz-linear-gradient(top, #76d64d, #689e4d);
+    background-image: -ms-linear-gradient(top, #76d64d, #689e4d);
+    background-image: -o-linear-gradient(top, #76d64d, #689e4d);
+    background-image: linear-gradient(to bottom, #76d64d, #689e4d);
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 18px;
+    padding: 5px 10px 25px 10px;
+    border: solid #1f8c22 2px;
+    text-decoration: none;
+    height: 30px;
+}
+
+.h5 {
+    font-weight:normal;
+    color:#000000;
+    letter-spacing:0pt;
+    word-spacing:2pt;
+    font-size:13px;
+    text-align:left;
+    font-family:arial, helvetica, sans-serif;
+    line-height:0;
+}
+
+.h6 {
+    text-shadow:1px 1px 1px rgba(69,255,23,1);
+    font-weight:normal;
+    color:#119611;
+    letter-spacing:0pt;
+    word-spacing:2pt;
+    font-size:15px;
+    text-align:left;
+    font-family:arial, helvetica, sans-serif;
+    line-height:0;
+}
+
+/************************************************************/
+/* Dropdown Menu */
+.styled-select {
+    position: relative;
+    top:4px;
+    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+    height: 29px;
+    overflow: hidden;
+    width: 150px;
+    color: #000000;
+}
+
+.styled-select select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px;
+    width: 150px;
+}
+
+.styled-select.slate {
+    background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+    height: 34px;
+    width: 150px;
+}
+
+.styled-select.slate select {
+    border: 1px solid #ccc;
+    font-size: 16px;
+    height: 34px;
+    width: 150px;
+}
+
+.rounded {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+.yellow  { background-color: #E6A82C; }
