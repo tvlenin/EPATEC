@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productos</title>
+    <link rel="stylesheet" href="../assets/css/shopStyle.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+<div data-ng-app="mainModule">
+    <div class="well container-fluid">
+        <h1>Administración</h1>
+        <tabs>
+            <pane title="Pedidos" >
+                <div ng-controller="OrdenesController">
+                    <table class="table table-inverse" >
+                        <thead>
+                        <tr >
+                            <th># Factura</th>
+                            <th>Fecha</th>
+                            <th>Activo</th>
+                            <th>ID Cliente</th>
+                            <th>Sucursal</th>
+                            <th>Estatus</th>
+                            <th>Accion</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="producto in productos">
+                            <td> <h4> {{producto.Invoice_ID}} </h4> </td>
+                            <td> <h5> {{producto.Date_Time}} </h5> </td>
+                            <td> <h5> {{producto.Active}} </h5> </td>
+                            <td> <h5> {{producto.Customer_ID}} </h5> </td>
+                            <td> <h5> {{producto.BOffice}} </h5> </td>
+                            <td> <h5> {{producto.Order_Status}} </h5> </td>
+
+                            <td>
+                                <button class="btn" ng-click="updateOrder1(producto)">Cancelar</button>
+                                <button class="btn" ng-click="updateOrder2(producto)">Pendiente</button>
+                                <button class="btn" ng-click="updateOrder3(producto)">Entregada</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </pane>
+        </tabs>
+    </div>
+</div>

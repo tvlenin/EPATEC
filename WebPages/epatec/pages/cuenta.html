@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cuenta</title>
+	<link rel="stylesheet" href="../assets/css/cuentaStyle.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+<div ng-controller="cuentaController">
+	<div class="well container-fluid">
+		<h1>Cuenta</h1>
+
+		<tabs>
+			<pane title="Compras">
+				<table class="table table-inverse">
+					<thead>
+					<tr>
+						<th><h5>Factura</h5></th>
+						<th><h5>Productos</h5></th>
+						<!-- <th><h5>Sucursal</h5></th> -->
+						<th><h5>Precio Unitario</h5></th>
+						<th><h5>Total</h5></th>
+						<th><h5>Fecha</h5></th>
+						<th><h5>Estado</h5></th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in soldItems">
+							<th scope="row">{{item.Invoice_ID}}</th>
+							<td> <h5>{{item.Name}} x{{item.Quantity}} </h5> </td>
+							<td> <h5> {{item.Price}}</h5> </td>
+							<td> <h5> {{item.TotalPrice}}</h5> </td>
+							<td> <h5> {{item.Date_Time}}</h5> </td>
+							<td> <h5> {{item.Order_Status}}</h5> </td>
+						</tr>
+					</tbody>
+				</table>
+			</pane>
+			<pane title = "Editar Perfil">
+				<table class="table table-inverse">
+					<thead>
+					<tr>
+						<th><h5>Nombre</h5></th>
+						<th><h5><input ng-model=data.pname></h5></th>
+						<th><h5>Residencia</h5></th>
+                        <th><h5><input ng-model=data.presidence></h5></th>
+						<th><h5>Contraseña</h5></th>
+                        <th><h5><input ng-model=data.ppass></h5></th>
+                        <th><h5>Cumpleaños</h5></th>
+                        <th><h5><input ng-model=data.pbpdate></h5></th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+                        <th><h5>Teléfono</h5></th>
+                        <th><h5><input ng-model=data.pphone></h5></th>
+                        <th><h5>Correo Electrónico</h5></th>
+                        <th><h5><input ng-model=data.pemail></h5></th>
+
+                        <th>
+                            <button ng-click="data.saveUser()" style="background: #3498db;
+                              background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+                              background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+                              background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+                              background-image: -o-linear-gradient(top, #3498db, #2980b9);
+                              background-image: linear-gradient(to bottom, #3498db, #2980b9);
+                              -webkit-border-radius: 8px;
+                              -moz-border-radius: 8px;
+                              border-radius: 8px;
+                              font-family: Arial;
+                              color: #ffffff;
+                              font-size: 13px;
+                              padding: 10px 15px 10px 15px;
+                              text-decoration: none;">Guardar <i class="fa fa-save"></i></button>
+                        </th>
+
+                        <th>
+                            <button ng-click="deleteUser()" style="background: #d93434;
+                              background-image: -webkit-linear-gradient(top, #d93434, #b82b2b);
+                              background-image: -moz-linear-gradient(top, #d93434, #b82b2b);
+                              background-image: -ms-linear-gradient(top, #d93434, #b82b2b);
+                              background-image: -o-linear-gradient(top, #d93434, #b82b2b);
+                              background-image: linear-gradient(to bottom, #d93434, #b82b2b);
+                              -webkit-border-radius: 8px;
+                              -moz-border-radius: 8px;
+                              border-radius: 8px;
+                              font-family: Arial;
+                              color: #ffffff;
+                              font-size: 13px;
+                              padding: 10px 15px 10px 15px;
+                              text-decoration: none;">Eliminar <i class="fa fa-close"></i></button>
+                        </th>
+
+
+					</tr>
+					</tbody>
+				</table>
+			</pane>
+		</tabs>
+	</div>
+</div>
+
+</body>
+
+</html>

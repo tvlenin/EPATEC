@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productos</title>
+    <link rel="stylesheet" href="../assets/css/shopStyle.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div data-ng-app="mainModule">
+    <div class="well container-fluid">
+        <h1>Productos Disponibles</h1>
+        <tabs>
+            <pane title="Productos">
+            <div class="row" ng-controller="ProductosController">
+                <div class="well span3" ng-repeat="producto in productos">
+                    <h4>{{producto.Name}}</h4>
+                    <h5>Stock: {{producto.Stock}}</h5>
+                    <h5>Sucursal: {{producto.BOffice}}</h5>
+                    <!--<img class="" title="{{producto.ID_Supplier}}" src="../images/{{producto.Name}}{{producto.ID_Supplier}}.png" /> -->
+                    <img class="" title="{{producto.Name}}" src="http://admin-epatec.codigo22.com/upload/files/{{producto.Name}}{{producto.ID_Supplier}}.png" />
+                    <button class="btn btn-info btn-block" ng-click="agregar(producto)">
+                        <i class="icon-plus-sign"></i>
+                        Precio: {{producto.Price|formatoMoneda}}
+                    </button>
+                </div>
+            </div>
+            </pane>
+            <pane title="Carrito">
+            <div class="row" ng-controller="CarritoController" ng-show="carrito.length">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="span1">Id</th>
+                            <th class="span5">Producto</th>
+                            <th class="span2">Cantidad</th>
+                            <th class="span2">Precio</th>
+                            <th class="span2">Subtotal</th>
+                            <th>
+                                <button class="buyButton" ng-click="realizarCompra()">
+                                    Comprar<i class="fa fa-shopping-cart"></i>
+                                </button>
+                                <select class="styled-select yellow rounded" ng-model="selectedSucursal" ng-options="x for x in sucursales" ng-init="selectedName = selectedName" >
+                                    <option selected disabled>Sucursal</option>
+                                </select>
+                            </th>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="well" ng-repeat="item in carrito">
+                            <td>{{item.Producto.ID_Product}}</td>
+                            <td>{{item.Producto.Name}}</td>
+                            <td>
+                                <input type="text" ng-model="item.Cantidad" />
+                            </td>
+                            <td>{{item.Producto.Price|formatoMoneda}}</td>
+                            <td>{{item.Cantidad * item.Producto.Price|formatoMoneda}}</td>
+
+                            <td>
+                                <button class="btn btn-danger" ng-click="eliminar(item)">
+                                    <i class="icon-minus-sign"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="well">
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <td></td>
+                            <td>{{precioTotal()|formatoMoneda}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </pane>
+        </tabs>
+    </div>
+</div>
+  
+</body>
+
+</html>

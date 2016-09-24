@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Descarga la Epatec App</title>
+    <!-- <META http-equiv="refresh" content="6;URL=https://codigo22.com"> -->
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+	<style>
+
+	/* Style for our header texts
+	* --------------------------------------- */
+    body{
+        background-image: url("../images/banner.jpg");
+    }
+
+	h1{
+		font-size: 5em;
+		font-family: arial,helvetica;
+		color: #fff;
+		margin:0;
+	}
+	.intro p{
+		color: #fff;
+	}
+
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+		overflow: hidden; /* To correcte video overflow page */
+	}
+    #section2 .layer{
+		position: absolute;
+		z-index: 4;
+		width: 100%;
+		left: 0;
+		top: 43%;
+	}
+
+	/* Overwriting styles for the navigation dots (to place it where we want)
+	* --------------------------------------- */
+	.fp-slidesNav.bottom{
+		bottom: 25px;
+	}
+
+	/* Bottom menu
+	* --------------------------------------- */
+	#infoMenu li a {
+		color: #333;
+	}
+    #section1{
+        color:black;
+    }
+    #section1 h1{
+        color:black;
+        font-size: 35px;
+    }
+    #banner_donar h3{
+        color:white;
+        font-size: 12px;
+    }
+    #banner_donar h4{
+        color:white;
+        font-size: 22px;
+    }
+    #banner_donar h5{
+        color:white;
+        font-size: 8px;
+    }
+    #androidimg {
+        width: 120px;
+        height: 60px;
+    }
+        
+    
+    
+
+	</style>
+    <script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				anchors: ['firstPage'],
+				sectionsColor: ['#8FB98B']
+			});
+		});
+	</script>
+
+</head>
+<body>
+<div id="fullpage">
+
+	<div class="section " id="section0">
+
+        <nav id="nav">
+                <li><a href="index.html">Home</a></li>
+        </nav>
+        
+        <section id="banner_donar">
+            <i class="icon fa-mobile"></i>
+            <h4>Epatec</h4>
+            <h3>La aplicación para dispositivos móviles<br>pronto estará disponible.<br>
+                Y la podrás descargar <a href="#">aquí</a></h3>
+            <img id = "androidimg" src="../images/android.png" alt="Menú">
+            <h5>Only available for android devices. Android is cool</h5>
+        </section>
+	</div>
+</div>
+</body>
+</html>
